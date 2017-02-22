@@ -54,6 +54,14 @@ class Student
     SqlRunner.run(sql)
   end
 
+  def update()
+    sql = "UPDATE students SET
+           (first_name, last_name, age, house) =
+           ('#{@first_name}', '#{@last_name}', #{@age}, '#{@house}')
+           WHERE id = #{@id};"
+    SqlRunner.run(sql)
+  end
+
   def sorting_hat()
     sql = "SELECT * FROM houses;"
     returned_houses = SqlRunner.run(sql)
@@ -61,6 +69,7 @@ class Student
     random_house = returned_houses_objects_array.sample
     @house = random_house.name
     @house_id = random_house.id.to_i
+    update()
   end
 
 end
