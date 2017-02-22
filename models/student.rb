@@ -39,4 +39,9 @@ class Student
   def self.find_by_id
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM students;"
+    SqlRunner.run(sql)
+  end
+
 end
