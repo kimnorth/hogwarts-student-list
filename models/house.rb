@@ -1,17 +1,17 @@
 class House
 
-  attr_reader :name,:beast
+  attr_reader :name, :beast
   attr_accessor :id
 
   def initialize(options)
-    @name = options['name']
+    @name = options['name'].to_s
     @beast = options['beast']
     @id =options['id'] if options['id']
   end
 
   def save
     sql = "INSERT INTO houses 
-    (name,beast)
+    (name, beast)
     VALUES
     (
     '#{@name}',

@@ -2,26 +2,26 @@ require_relative('../sql_runner.rb')
 
 class Student
 
-  attr_accessor :id
-  attr_reader :first_name, :last_name, :house, :age
+  attr_accessor :id, :house
+  attr_reader :first_name, :last_name, :age
 
   def initialize(options)
     @first_name = options["first_name"]
     @last_name = options["last_name"]
-    @house = options["house"]
     @age = options["age"].to_i
+    @house = options["house"]
     @id = options['id'].to_i if options['id'].to_i
   end
 
   def save()
 
-    sql = "INSERT INTO students (first_name, last_name, house, age)
+    sql = "INSERT INTO students (first_name, last_name, age, house)
           VALUES
           (
           '#{@first_name}',
           '#{@last_name}',
-          '#{@house}',
-          #{@age}
+          #{@age},
+          '#{@house}'
           ) RETURNING *;"
     firstresult = SqlRunner.run(sql)
     resultobject = firstresult.map { |student| Student.new(student)}
@@ -29,6 +29,8 @@ class Student
     @id = idasstring.to_i    
 
   end
+
+ # '#{@house}',
 
   def self.all
     sql = "SELECT * FROM students;"
