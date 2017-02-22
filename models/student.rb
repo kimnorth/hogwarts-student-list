@@ -30,6 +30,10 @@ class Student
   end
 
   def self.all
+    sql = "SELECT * FROM students;"
+    returned_query = SqlRunner.run(sql)
+    list_of_student_objects = returned_query.map {|student| Student.new(student)}
+    return list_of_student_objects
   end
 
   def self.find_by_id
