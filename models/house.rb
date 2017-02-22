@@ -4,12 +4,23 @@ class House
   attr_accessor :id
 
   def initialize(options)
-    @id =options['id'] if options['id']
     @name = options['name']
     @beast = options['beast']
+    @id =options['id'] if options['id']
   end
 
   def save
-    sql = 
+    sql = "INSERT INTO houses 
+    (name,beast)
+    VALUES
+    (
+    '#{@name}',
+    '#{@beast}') 
+    RETURNING *;"
+    firstresult = SqlRunner.run(sql)
+    resultobject = firstresult.map {|house| House.new(house)}
+    idasstring = resultobject[0].id
+    @id = idasstring.to_i
+  end
 
 end
