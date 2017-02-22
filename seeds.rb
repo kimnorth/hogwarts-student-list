@@ -21,7 +21,7 @@ House.delete_all()
 
 # Students
 
-@student1 = Student.new({"first_name" => "Harry", "last_name" => "Potter", "age" => 78, "house" => @gryffindor.name})
+@student1 = Student.new({"first_name" => "Harry", "last_name" => "Potter", "age" => 78, "house" => @gryffindor.name, "house_id" => @gryffindor.id})
 @student1.save()
 
 @student2 = Student.new({"first_name" => "Hermione", "last_name" => "Granger", "age" => 108, "house" => @ravenclaw.name})

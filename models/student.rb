@@ -1,4 +1,5 @@
 require_relative('../sql_runner.rb')
+require_relative('./house.rb')
 
 class Student
 
@@ -11,6 +12,7 @@ class Student
     @age = options["age"].to_i
     @house = options["house"]
     @id = options['id'].to_i if options['id'].to_i
+    @house_id = options["house_id"]
   end
 
   def save()
@@ -52,17 +54,13 @@ class Student
     SqlRunner.run(sql)
   end
 
-  def alter_table()
-
+  def sorting_hat()
+    sql = "SELECT * FROM houses;"
+    returned_houses = SqlRunner.run(sql)
+    returned_houses_objects_array = returned_houses.map {|house| House.new(house)}
+    random_house = returned_houses_objects_array.sample
+    @house = random_house.name
+    @house_id = random_house.id.to_i
   end
-
-  # def find_house()
-  #   sql = "SELECT * FROM houses
-  #         INNER JOIN students_houses ON houses(id)
-  #         WHERE student_id = #{@id};"
-  #   result = SqlRunner.run(sql)
-  #   resultobject = result.map { |house| House.new(house)}
-  #   return resultobject
-  # end
 
 end
