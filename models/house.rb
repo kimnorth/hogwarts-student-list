@@ -35,4 +35,12 @@ class House
     SqlRunner.run(sql)
   end
 
+  def find_by_id()
+    sql = "SELECT * FROM houses
+            WHERE id = #{@id};"
+    returned_query = SqlRunner.run(sql)
+    mapped_object = returned_query.map {|house| House.new(house)}
+    return mapped_object
+  end
+
 end

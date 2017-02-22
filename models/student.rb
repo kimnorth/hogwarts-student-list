@@ -50,4 +50,13 @@ class Student
     SqlRunner.run(sql)
   end
 
+  # def find_house()
+  #   sql = "SELECT * FROM houses
+  #         INNER JOIN students_houses ON houses(id)
+  #         WHERE student_id = #{@id};"
+  #   result = SqlRunner.run(sql)
+  #   resultobject = result.map { |house| House.new(house)}
+  #   return resultobject
+  # end
+
 end
