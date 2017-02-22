@@ -9,11 +9,25 @@
   <input type="text" id="last_name" name="last_name" />
 
 <label for="house">House: </label>
+  
   <select id="house" name="house">
-    <option value="Gryffindor">Gryffindor</option>
-    <option value="Slytherin">Slytherin</option>
-    <option value="Hufflepuff">Hufflepuff</option>
-    <option value="Ravenclow">Ravenclaw</option>
+
+    <option 
+    <%= "selected" if (@random_house == "Gryffindor") %>
+    value="Gryffindor">Gryffindor</option>
+
+    <option
+    <%= "selected" if (@random_house == "Slytherin") %> 
+    value="Slytherin">Slytherin</option>
+
+    <option 
+    <%= "selected" if (@random_house == "Hufflepuff") %>
+    value="Hufflepuff">Hufflepuff</option>
+    
+    <option 
+    <%= "selected" if (@random_house == "Ravenclaw") %>
+    value="Ravenclaw">Ravenclaw</option>
+  
   </select>
 
 <label for="age">Age: </label>

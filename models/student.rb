@@ -72,4 +72,18 @@ class Student
     update()
   end
 
+  def self.new_sorting_hat()
+    random_number = rand(1..4)
+    case random_number
+    when 1
+      return "Gryffindor"
+    when 2
+      return "Slytherin"
+    when 3
+      return "Hufflepuff"
+    when 4
+      return "Ravenclaw"
+    end
+  end
+
 end

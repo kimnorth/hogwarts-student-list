@@ -6,8 +6,8 @@ require_relative('./models/student.rb')
 # CREATE
 
 get '/hogwarts/new' do
+  @random_house = Student.new_sorting_hat()
   erb(:new)
-  # redirect to('/hogwarts/students')
 end
 
 # SUBMIT (update table)
