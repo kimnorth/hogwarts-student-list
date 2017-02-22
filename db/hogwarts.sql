@@ -17,8 +17,14 @@ CREATE TABLE students (
   age INT4
 );
 
--- CREATE TABLE students_houses (
---   id SERIAL4 PRIMARY KEY,
---   student_id INT4 REFERENCES students(id) ON DELETE CASCADE,
---   house_id INT4 REFERENCES houses(id) ON DELETE CASCADE
--- );
+CREATE TABLE students_houses (
+  id SERIAL4 PRIMARY KEY,
+  student_id INT4 REFERENCES students(id) ON DELETE CASCADE,
+  house_id INT4 REFERENCES houses(id) ON DELETE CASCADE
+);
+
+ALTER TABLE students
+DROP COLUMN house;
+
+ALTER TABLE students
+ADD house VARCHAR(255);

@@ -50,6 +50,10 @@ class Student
     SqlRunner.run(sql)
   end
 
+  def alter_table()
+
+  end
+
   # def find_house()
   #   sql = "SELECT * FROM houses
   #         INNER JOIN students_houses ON houses(id)

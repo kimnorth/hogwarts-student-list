@@ -1,9 +1,11 @@
 require('pry-byebug')
 require_relative('./models/student.rb')
-# require_relative('./models/house.rb')
+require_relative('./models/house.rb')
 
 Student.delete_all()
-# House.delete_all()
+House.delete_all()
+
+# Students
 
 @student1 = Student.new({"first_name" => "Harry", "last_name" => "Potter", "house" => "Gryffindor", "age" => 78})
 @student1.save()
@@ -14,17 +16,19 @@ Student.delete_all()
 @student3 = Student.new({"first_name" => "Ron", "last_name" => "Weasley", "house" => "Gryffindor", "age" => 8})
 @student3.save()
 
-# @gryffindor = House.new({"name" => "Gryffindor", "beast" => "Lion"})
-# @gryffindor.save
+# Houses
 
-# @slytherin = House.new({"name" => "Slytherin", "beast" => "snek"})
-# @slytherin.save
+@gryffindor = House.new({"name" => "Gryffindor", "beast" => "Lion"})
+@gryffindor.save
 
-# @hufflepuff = House.new({"name" => "Hufflepuff", "beast" => "Badger"})
-# @hufflepuff.save
+@slytherin = House.new({"name" => "Slytherin", "beast" => "snek"})
+@slytherin.save
 
-# @ravenclaw = House.new({"name" => "Ravenclaw", "beast" => "Raven"})
-# @ravenclaw.save
+@hufflepuff = House.new({"name" => "Hufflepuff", "beast" => "Badger"})
+@hufflepuff.save
+
+@ravenclaw = House.new({"name" => "Ravenclaw", "beast" => "Raven"})
+@ravenclaw.save
 
 binding.pry
 nil
