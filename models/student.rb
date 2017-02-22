@@ -36,7 +36,12 @@ class Student
     return list_of_student_objects
   end
 
-  def self.find_by_id
+  def find_by_id
+    sql = "SELECT * FROM students
+          WHERE id = #{@id};"
+    returned_query = SqlRunner.run(sql)
+    returned_student = returned_query.map {|student| Student.new(student)}
+    return returned_student
   end
 
   def self.delete_all()
