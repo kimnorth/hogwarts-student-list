@@ -3,6 +3,7 @@ require_relative('../sql_runner.rb')
 class Student
 
   attr_accessor :id
+  attr_reader :first_name, :last_name, :house, :age
 
   def initialize(options)
     @first_name = options["first_name"]
